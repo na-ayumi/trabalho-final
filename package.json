@@ -10,12 +10,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^7.3.0",
     "inversify": "^7.11.0",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
+    "prisma": "^7.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/na-ayumi/trabalho-final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/na-ayumi/trabalho-final/issues"
+  },
+  "homepage": "https://github.com/na-ayumi/trabalho-final#readme"
 }
