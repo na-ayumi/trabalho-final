@@ -1,8 +1,22 @@
-datasource db{
+datasource db {
   provider = "sqlite"
-  url = "file:./database/db.db"
+  url      = "file:./database/db.db"
 }
 
-generator client{
+generator client {
   provider = "prisma-client-js"
+}
+
+model Car {
+  id           String  @id
+  licensePlate String  @unique
+  available    Boolean
+}
+
+model Rental {
+  id        String    @id
+  carId     String
+  startDate DateTime
+  endDate   DateTime?
+  createAt  DateTime  @default(now())
 }
