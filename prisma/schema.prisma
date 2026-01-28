@@ -17,6 +17,6 @@ model Rental {
   id        String    @id
   carId     String
   startDate DateTime
-  endDate   DateTime?
+  endDate   DateTime
   createAt  DateTime  @default(now())
 }
