@@ -7,7 +7,7 @@ import { CreateRentalDTO } from "./CreateRentalDTO";
 
 
 @injectable()
-class CreateRentalUseCase{
+export class CreateRentalUseCase{
     constructor(
         @inject(TYPES.RentalRepository) private rentalRepository: IRentalRepository,
         @inject(TYPES.CarRepository) private carRepository: ICarRepostitory

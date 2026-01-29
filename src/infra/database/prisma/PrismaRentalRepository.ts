@@ -13,6 +13,14 @@ export class PrismaRentalRepository implements IRentalRepository{
         return rental;
     }
 
+    async findOpenRentalByCarId(carId: string): Promise<Rental | null> {
+        const rental = await prisma.rental.findUnique({
+            where: {carId}
+        })
+
+        return rental;
+    }
+
     async createRental(rental: Rental): Promise<void> {
         await prisma.rental.create({
             id: rental.id,
