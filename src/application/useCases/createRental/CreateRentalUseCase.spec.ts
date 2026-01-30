@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { FakeCarRepository } from '../../../infra/database/inMemory/inMemoryCarRepository';
-import { FakeRentalRepository } from '../../../infra/database/inMemory/inMemoryRentalRepository';
-import { CreateRentalUseCase } from './CreateRentalUseCase';
-import { Rental } from '../../../domain/entities/Rental';
+import { FakeCarRepository } from '../../../infra/database/inMemory/inMemoryCarRepository.js';
+import { FakeRentalRepository } from '../../../infra/database/inMemory/inMemoryRentalRepository.js';
+import { CreateRentalUseCase } from './CreateRentalUseCase.js';
+import { Rental } from '../../../domain/entities/Rental.js';
 
 let rentalRepository: FakeRentalRepository;
 let carRepository: FakeCarRepository;
@@ -70,7 +70,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
         id: 'rental-3',
         carId: 'car-3',
         startDate: new Date('2024-01-01T10:00:00'),
-        endDate: new Date('2024-01-01T20:00:00'), // 10h
+        endDate: new Date('2024-01-01T20:00:00'),
         createAt: new Date()
       })
     ).rejects.toThrow('Duração mínima de 24h não atingida.');
@@ -82,7 +82,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
         id: 'rental-4',
         carId: 'car-4',
         startDate: new Date('2024-01-01T10:00:00'),
-        endDate: new Date('2024-01-02T10:00:00'), // 24h
+        endDate: new Date('2024-01-02T10:00:00'),
         createAt: new Date()
       })
     ).resolves.not.toThrow();

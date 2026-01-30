@@ -1,9 +1,9 @@
 import { inject, injectable } from "inversify";
-import { ICarRepostitory } from "../../../domain/repositories/ICarRepository";
-import { IRentalRepository } from "../../../domain/repositories/IRentalRepository";
-import { TYPES } from "../../../infra/container/types";
-import { Rental } from "../../../domain/entities/Rental";
-import { CreateRentalDTO } from "./CreateRentalDTO";
+import { ICarRepostitory } from "../../../domain/repositories/ICarRepository.js";
+import { IRentalRepository } from "../../../domain/repositories/IRentalRepository.js";
+import { TYPES } from "../../../infra/container/types.js";
+import { Rental } from "../../../domain/entities/Rental.js";
+import { CreateRentalDTO } from "./CreateRentalDTO.js";
 
 
 @injectable()

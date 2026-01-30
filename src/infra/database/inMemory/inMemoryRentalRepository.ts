@@ -1,5 +1,5 @@
-import { Rental } from "../../../domain/entities/Rental";
-import { IRentalRepository } from "../../../domain/repositories/IRentalRepository";
+import { Rental } from "../../../domain/entities/Rental.js";
+import { IRentalRepository } from "../../../domain/repositories/IRentalRepository.js";
 
 export class FakeRentalRepository implements IRentalRepository {
     private rentals: Rental[] = [];

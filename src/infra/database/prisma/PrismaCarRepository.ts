@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
-import { prisma } from "./client";
-import { Car } from "../../../domain/entities/Car";
-import { ICarRepostitory } from "../../../domain/repositories/ICarRepository";
+import { prisma } from "./client.js";
+import { Car } from "../../../domain/entities/Car.js";
+import { ICarRepostitory } from "../../../domain/repositories/ICarRepository.js";
 
 @injectable()
 export class PrismaCarReposittory implements ICarRepostitory {

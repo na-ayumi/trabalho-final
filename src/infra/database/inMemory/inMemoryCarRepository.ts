@@ -1,5 +1,5 @@
-import { Car } from "../../../domain/entities/Car";
-import { ICarRepostitory } from "../../../domain/repositories/ICarRepository";
+import { Car } from "../../../domain/entities/Car.js";
+import { ICarRepostitory } from "../../../domain/repositories/ICarRepository.js";
 
 export class FakeCarRepository implements ICarRepostitory {
     private cars: Car[] = [];
