@@ -9,7 +9,11 @@
     
 2. Crie o banco de dados (SQLite) e as tabelas
     ``` bash
-    npm run prisma: seed
+    npm run prisma:migrate
+    ```
+3. Popule o banco com dados de testes (Carros e Aluguéis)
+    ``` bash
+    npm run prisma:seed
     ```
 
 ### Execução
