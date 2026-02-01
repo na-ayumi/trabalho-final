@@ -1,4 +1,4 @@
-import { inject, injectable } from "inversify";
+import { injectable } from "inversify";
 import { prisma } from "./client.js";
 import { Car } from "../../../domain/entities/Car.js";
 import { ICarRepostitory } from "../../../domain/repositories/ICarRepository.js";
@@ -10,7 +10,16 @@ export class PrismaCarReposittory implements ICarRepostitory {
             where: {licensePlate}
         })
 
-        return car;
+        if (!car) {
+            return null;
+        }
+
+        return new Car(
+            car.id,
+            car.licensePlate,
+            car.available
+        )
+        
     }
 
     async newCar(car: Car): Promise<void> {
