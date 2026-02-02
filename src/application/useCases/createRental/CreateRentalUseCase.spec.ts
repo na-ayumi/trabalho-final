@@ -34,7 +34,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-2',
-        carId: 'car-1',
+        licensePlate: 'car-1',
         startDate: new Date('2024-01-03'),
         endDate: new Date('2024-01-04'),
         createAt: new Date()
@@ -56,7 +56,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-1',
-        carId: 'car-2',
+        licensePlate: 'car-2',
         startDate: new Date('2024-01-04'),
         endDate: new Date('2024-01-05'),
         createAt: new Date()
@@ -68,7 +68,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-3',
-        carId: 'car-3',
+        licensePlate: 'car-3',
         startDate: new Date('2024-01-01T10:00:00'),
         endDate: new Date('2024-01-01T20:00:00'),
         createAt: new Date()
@@ -80,7 +80,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-4',
-        carId: 'car-4',
+        licensePlate: 'car-4',
         startDate: new Date('2024-01-01T10:00:00'),
         endDate: new Date('2024-01-02T10:00:00'),
         createAt: new Date()

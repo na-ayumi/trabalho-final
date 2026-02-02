@@ -14,6 +14,13 @@ export class CreateRentalUseCase{
     ) {}
 
     async execute(data: CreateRentalDTO): Promise<void> {
+
+        const car = await this.carRepository.findByLicensePlate(data.licensePlate);
+
+        if (!car){
+            throw new Error ("Carro não encontrado.")
+        }
+
         const rental = new Rental(
             data.id, data.licensePlate, data.startDate, data.endDate, data.createAt);
 
