@@ -13,9 +13,9 @@ model Car {
 }
 
 model Rental {
-  id        String    @id
-  carId     String
-  startDate DateTime
-  endDate   DateTime
-  createAt  DateTime  @default(now())
+  id           String   @id
+  licensePlate String
+  startDate    DateTime
+  endDate      DateTime?
+  createAt     DateTime @default(now())
 }

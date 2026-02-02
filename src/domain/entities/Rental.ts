@@ -3,7 +3,7 @@ export class Rental {
         public id: string,
         public licensePlate: string,
         public startDate: Date,
-        public endDate: Date,
+        public endDate: Date | null,
         public createAt: Date
     ){}
 }

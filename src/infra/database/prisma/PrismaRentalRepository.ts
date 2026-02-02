@@ -25,7 +25,7 @@ export class PrismaRentalRepository implements IRentalRepository{
 
     async findOpenRentalByLicensePlate(licensePlate: string): Promise<Rental | null> {
         const rental = await prisma.rental.findFirst({
-            where: { licensePlate, endDate: null }
+            where: { licensePlate, endDate: {equals: null} }
         })
 
         if (!rental) {
