@@ -11,8 +11,4 @@ export class FakeCarRepository implements ICarRepostitory {
         }
         return car;
     }
-
-    async newCar(car: Car): Promise<void> {
-        this.cars.push(car);
-    }
 }

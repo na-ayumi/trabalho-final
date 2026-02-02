@@ -9,13 +9,12 @@ generator client {
 
 model Car {
   licensePlate String  @id
-  available    Boolean
 }
 
 model Rental {
   id           String   @id
   licensePlate String
   startDate    DateTime
-  endDate      DateTime?
+  endDate      DateTime
   createAt     DateTime @default(now())
 }

@@ -15,8 +15,7 @@ export class PrismaCarReposittory implements ICarRepostitory {
         }
 
         return new Car(
-            car.licensePlate,
-            car.available
+            car.licensePlate
         )
         
     }

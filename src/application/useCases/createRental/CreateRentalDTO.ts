@@ -1,6 +1,6 @@
 export interface CreateRentalDTO {
     id: string,
-    carId: string,
+    licensePlate: string,
     startDate: Date,
     endDate: Date,
     createAt: Date

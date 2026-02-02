@@ -12,8 +12,8 @@ export class FakeRentalRepository implements IRentalRepository {
         return rental;
     }
 
-    async findOpenRentalByCarId(carId: string): Promise<Rental | null> {
-        const rental = this.rentals.find(rental => rental.carId === carId);
+    async findOpenRentalByLicensePlate(licensePlate: string): Promise<Rental | null> {
+        const rental = this.rentals.find(rental => rental.licensePlate === licensePlate);
         if(!rental) {
             return null;
         }
