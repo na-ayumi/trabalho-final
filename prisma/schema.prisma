@@ -8,8 +8,7 @@ generator client {
 }
 
 model Car {
-  id           String  @id
-  licensePlate String  @unique
+  licensePlate String  @id
   available    Boolean
 }
 

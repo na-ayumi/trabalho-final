@@ -8,24 +8,44 @@ export class PrismaRentalRepository implements IRentalRepository{
     async findById(id: string): Promise<Rental | null> {
         const rental = await prisma.rental.findUnique({
             where: {id}
-        })
+        });
 
-        return rental;
+        if (!rental) {
+            return null;
+        }
+
+        return new Rental(
+            rental.id,
+            rental.licensePlate,
+            rental.startDate,
+            rental.endDate,
+            rental.createAt
+        );
     }
 
-    async findOpenRentalByCarId(carId: string): Promise<Rental | null> {
+    async findOpenRentalByLicensePlate(licensePlate: string): Promise<Rental | null> {
         const rental = await prisma.rental.findFirst({
-            where: { carId }
+            where: { licensePlate, endDate: null }
         })
 
-        return rental
+        if (!rental) {
+            return null;
+        }
+
+        return new Rental(
+            rental.id,
+            rental.licensePlate,
+            rental.startDate,
+            rental.endDate,
+            rental.createAt
+        )
     }
 
     async createRental(rental: Rental): Promise<void> {
         await prisma.rental.create({
             data: {
                 id: rental.id,
-                carId: rental.carId,
+                licensePlate: rental.licensePlate,
                 startDate: rental.startDate,
                 endDate: rental.endDate,
                 createAt: rental.createAt

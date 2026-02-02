@@ -15,20 +15,10 @@ export class PrismaCarReposittory implements ICarRepostitory {
         }
 
         return new Car(
-            car.id,
             car.licensePlate,
             car.available
         )
         
     }
-
-    async newCar(car: Car): Promise<void> {
-        await prisma.car.create({
-            data: {
-                id: car.id,
-                licensePlate: car.licensePlate,
-                available: car.available
-            }
-        })
-    }
 }
+
