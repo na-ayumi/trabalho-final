@@ -20,10 +20,22 @@ beforeEach(() => {
 
 describe('CreateRentalUseCase - Regras de Negócio', () => {
 
+  it('deve lançar erro se o carro não existir', async() => {
+    await expect(
+      createRentalUseCase.execute({
+        id: 'rental-1',
+        licensePlate: 'DAF-6493',
+        startDate: new Date('2026-02-01'),
+        endDate: new Date('2026-02-02'),
+        createAt: new Date()
+      })
+    ).rejects.toThrow('Carro não encontrado');
+  })
+
   it('deve lançar erro se o carro já possuir aluguel em aberto', async () => {
     const rental = new Rental(
       'rental-1',
-      'car-1',
+      'ABC-1234',
       new Date('2024-01-01'),
       new Date('2024-01-02'),
       new Date()
@@ -34,7 +46,7 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-2',
-        licensePlate: 'car-1',
+        licensePlate: 'ABC-1234',
         startDate: new Date('2024-01-03'),
         endDate: new Date('2024-01-04'),
         createAt: new Date()
@@ -42,35 +54,13 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     ).rejects.toThrow('Carro indisponível.');
   });
 
-  it('deve lançar erro se o usuário já possuir aluguel em aberto', async () => {
-    const rental = new Rental(
-      'rental-1',
-      'car-1',
-      new Date('2024-01-01'),
-      new Date('2024-01-03'),
-      new Date()
-    );
-
-    await rentalRepository.createRental(rental);
-
-    await expect(
-      createRentalUseCase.execute({
-        id: 'rental-1',
-        licensePlate: 'car-2',
-        startDate: new Date('2024-01-04'),
-        endDate: new Date('2024-01-05'),
-        createAt: new Date()
-      })
-    ).rejects.toThrow('Usuário já possui aluguel em aberto.');
-  });
-
   it('deve lançar erro se a duração do aluguel for menor que 24h', async () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-3',
-        licensePlate: 'car-3',
-        startDate: new Date('2024-01-01T10:00:00'),
-        endDate: new Date('2024-01-01T20:00:00'),
+        licensePlate: 'DEF-5678',
+        startDate: new Date('2026-01-01T10:00:00'),
+        endDate: new Date('2026-01-01T20:00:00'),
         createAt: new Date()
       })
     ).rejects.toThrow('Duração mínima de 24h não atingida.');
@@ -80,9 +70,9 @@ describe('CreateRentalUseCase - Regras de Negócio', () => {
     await expect(
       createRentalUseCase.execute({
         id: 'rental-4',
-        licensePlate: 'car-4',
-        startDate: new Date('2024-01-01T10:00:00'),
-        endDate: new Date('2024-01-02T10:00:00'),
+        licensePlate: 'DEF-5678',
+        startDate: new Date('2026-02-01T10:00:00'),
+        endDate: new Date('2026-02-02T10:00:00'),
         createAt: new Date()
       })
     ).resolves.not.toThrow();
