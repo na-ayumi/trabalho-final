@@ -9,6 +9,9 @@
     "dev": "tsx src/adapters/cli/main.ts",
     "prisma:migrate": "prisma migrate dev"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
