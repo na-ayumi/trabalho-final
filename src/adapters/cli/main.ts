@@ -9,7 +9,7 @@ async function main() {
     id: 'rental-simulado',
     licensePlate: 'HFP-3762',
     startDate: new Date('2026-03-02T10:00:00'),
-    endDate: new Date ('2026-03-05T13:00:000'),
+    endDate: new Date ('2026-03-05T13:00:00'),
     createAt: new Date()
   });
 
