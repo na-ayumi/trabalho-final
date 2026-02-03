@@ -62,4 +62,4 @@ Essas validações garantem a consistência dos dados e evitam estados inválido
 
 ### Interface de Linha de Comando (CLI)
 
-O CLI funciona como uma forma simples de interação com a aplicação. Ele recupera o caso de uso `CreateRental diretamente do container de injeção de dependência e executa a criação de um aluguel com dados simulados, sem conter qualquer regra de negócio.
+O CLI funciona como uma forma simples de interação com a aplicação. Ele recupera o caso de uso `CreateRental` diretamente do container de injeção de dependência e executa a criação de um aluguel com dados simulados, sem conter qualquer regra de negócio.
