@@ -13,7 +13,7 @@ export class CreateRentalUseCase{
         @inject(TYPES.CarRepository) private carRepository: ICarRepostitory
     ) {}
 
-    async execute(data: CreateRentalDTO): Promise<void> {
+    async execute(data: CreateRentalDTO): Promise<Rental> {
 
         const car = await this.carRepository.findByLicensePlate(data.licensePlate);
 
@@ -42,5 +42,6 @@ export class CreateRentalUseCase{
         }
 
         await this.rentalRepository.createRental(rental);
+        return rental;
     }
 }
