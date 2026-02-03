@@ -1,15 +1,15 @@
 import { prisma } from "../src/infra/database/prisma/client.js"
 
 async function main() {
-    await prisma.car.createMany({
-        data: [
-            {licensePlate: 'MDO-5379'},
-            {licensePlate: 'KFE-7913'},
-            {licensePlate: 'HFP-3762'},
-            {licensePlate: 'QLC-8046'},
-        ]
+  for (const lp of ['MDO-5379','KFE-7913','HFP-3762','QLC-8046']) {
+    await prisma.car.upsert({
+      where:{licensePlate: lp},
+      update: {},
+      create: {
+        licensePlate: lp
+      }
     })
-
+  }
     console.log('Seed realizado com sucesso!')
 }
 
