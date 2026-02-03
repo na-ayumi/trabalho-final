@@ -11,7 +11,7 @@
     ``` bash
     npm run prisma:migrate
     ```
-3. Popule o banco com dados de testes (Carros e Aluguéis)
+3. Popule o banco com dados de testes (Carros)
     ``` bash
     npm run prisma:seed
     ```
@@ -25,5 +25,5 @@
 
 - Para rodar a Aplicação Real (CLI + SQLite)
     ``` bash
-    npm run dev -- criar-aluguel --id r1 --carId c1 --start 2024-11-01T10:00:00 --end 2024-11-02T12:00:00
+    npx tsx src/adapters/cli/main.ts
     ```
