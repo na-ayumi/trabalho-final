@@ -29,8 +29,8 @@ async function main() {
   console.log('Início:', formatDate(rental.startDate));
   console.log('Fim:', formatDate(rental.endDate));
   console.log('Criado em:', formatDate(rental.createAt));
+}
 
 main().catch(error => {
   console.error('Erro ao executar o CLI: ', error.message);
 });
-}
