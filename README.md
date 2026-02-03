@@ -36,16 +36,16 @@ O projeto tem como objetivo o desenvolvimento de um **Sistema de Locação de Ve
 
 A organização do projeto foi feita respeitando a divisão de camadas proposta:
 
-- **Domain** 
+- **Domain:**
 Nesta camada ficam as entidades do sistema e os contratos (interfaces) dos repositórios. Aqui definimos o que é um carro, o que é um aluguel e quais operações precisam existir. Essa camada não depende de nenhuma biblioteca externa ou framework, mantendo as regras de negócio totalmente isoladas.
 
-- **Application**
+- **Application:**
 Contém os casos de uso da aplicação, responsáveis por executar as regras de negócio. O principal caso de uso implementado foi o `CreateRental`, que coordena todo o processo de criação de um aluguel, aplicando as validações necessárias antes de persistir os dados.
 
-- **Infra**
+- **Infra:**
 Nesta camada estão as implementações concretas, como o acesso ao banco de dados utilizando o Prisma, além da configuração do container de injeção de dependência com o Inversify. Essa camada cuida apenas dos detalhes técnicos, sem influenciar a lógica do domínio.
 
-- **Adapters**
+- **Adapters:**
 Responsável pelos pontos de entrada da aplicação. Neste projeto, utilizamos um **CLI**, que simula o uso do sistema, recebendo dados e acionando os casos de uso por meio do container de dependências.
 
 ### Caso de Uso: CreateRental
